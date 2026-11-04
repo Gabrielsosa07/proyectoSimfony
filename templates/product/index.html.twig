@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Listado de Productos{% endblock %}
+
+{% block body %}
+    <h1>Catálogo de Productos Activos</h1>
+
+    <p>
+        <a href="{{ path('app_producto_crear') }}">+ Crear Nuevo Producto</a>
+    </p>
+
+    <ul>
+        {% for producto in productos %}
+            <li>
+                <strong>{{ producto.nombre }}</strong> 
+                - Precio: ${{ producto.precio | number_format(2, ',', '.') }}
+                - Creado el: {{ producto.fechaCreacion ? producto.fechaCreacion | date('d/m/Y') : 'Sin fecha' }}
+                - <a href="{{ path('app_producto_detalle', {'id': producto.id}) }}">[Detalle]</a>
+            </li>
+        {% else %}
+            <li><em>No hay productos activos disponibles en este momento.</em></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

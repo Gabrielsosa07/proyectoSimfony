@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nuevo Producto{% endblock %}
+
+{% block body %}
+    <h1>Crear Nuevo Producto</h1>
+
+    {{ form(form) }}
+
+    <p style="margin-top: 15px;">
+        <a href="{{ path('app_producto_index') }}">← Volver atrás</a>
+    </p>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Detalle - {{ producto.nombre }}{% endblock %}
+
+{% block body %}
+    <h1>Detalle del Producto</h1>
+
+    <p><strong>ID:</strong> {{ producto.id }}</p>
+    <p><strong>Nombre:</strong> {{ producto.nombre }}</p>
+    <p><strong>Precio:</strong> ${{ producto.precio | number_format(2, ',', '.') }}</p>
+    <p><strong>Estado:</strong> {{ producto.activo ? 'Activo' : 'Inactivo' }}</p>
+    <p><strong>Fecha de Creación:</strong> {{ producto.fechaCreacion ? producto.fechaCreacion | date('d/m/Y') : 'Sin fecha' }}</p>
+
+    <p style="margin-top: 20px;">
+        <a href="{{ path('app_producto_index') }}">← Volver al listado</a>
+    </p>
+{% endblock %}
